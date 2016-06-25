@@ -1,0 +1,19 @@
+Manual
+
+
+
+0. Read data files
+1. display statistics
+2. Top 5 most tweeted words
+3. Top 5 most tweeted users
+4. Find users who tweeted a word (e.g., ’연세대’)
+5. Find all people who are friends of the above users
+6. Delete users who mentioned a word
+7. Delete all users who mentioned a word
+8. Find strongly connected components
+9. Find shortest path from a given user
+99. Quit
+
+
+초반 데이터 파일을 읽어오는데 시간이 많이 소요됩니다.
+1번 이후의 입력값들은 일단 0번을 수행해야 사용할 수 있습니다.

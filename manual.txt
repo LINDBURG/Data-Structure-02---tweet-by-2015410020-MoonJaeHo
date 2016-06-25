@@ -6,7 +6,7 @@ Manual
 1. display statistics
 2. Top 5 most tweeted words
 3. Top 5 most tweeted users
-4. Find users who tweeted a word (e.g., ¡¯¿¬¼¼´ë¡¯)
+4. Find users who tweeted a word (e.g., â€™ì—°ì„¸ëŒ€â€™)
 5. Find all people who are friends of the above users
 6. Delete all mentions of a word
 7. Delete all users who mentioned a word
@@ -14,6 +14,6 @@ Manual
 9. Find shortest path from a given user
 99. Quit
 
-
-ÃÊ¹İ µ¥ÀÌÅÍ ÆÄÀÏÀ» ÀĞ¾î¿À´Âµ¥ ½Ã°£ÀÌ ¸¹ÀÌ ¼Ò¿äµË´Ï´Ù.
-1¹ø ÀÌÈÄÀÇ ÀÔ·Â°ªµéÀº ÀÏ´Ü 0¹øÀ» ¼öÇàÇØ¾ß »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
+ê° ë²ˆí˜¸ë¥¼ ì…ë ¥ë°›ì•„ í‘œì‹œëœ ì‘ì—…ì„ ìˆ˜í–‰í•˜ë©° ì´ì™¸ì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ê±°ë‚˜ ìˆ«ìê°€ ì•„ë‹Œ ë¬¸ìë¥¼ ì…ë ¥í•˜ê²Œ ë˜ë©´ ì œëŒ€ë¡œ ëœ ìˆ«ìë¥¼ ì…ë ¥í•˜ë¼ê³  ë©”ì„¸ì§€ê°€ ëœ¨ê²Œ ë©ë‹ˆë‹¤.
+ì´ˆë°˜ ë°ì´í„° íŒŒì¼ì„ ì½ì–´ì˜¤ëŠ”ë° ì‹œê°„ì´ ë§ì´ ì†Œìš”ë©ë‹ˆë‹¤.
+1ë²ˆ ì´í›„ì˜ ì…ë ¥ê°’ë“¤ì€ ì¼ë‹¨ 0ë²ˆì„ ìˆ˜í–‰í•´ì•¼ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.

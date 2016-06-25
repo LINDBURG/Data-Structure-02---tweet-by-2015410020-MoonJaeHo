@@ -99,12 +99,15 @@ def print_vertex(vertices,n):
     print('')
 
 def  readDF():
-    global unumber,frecord,tweet,Account,vertices, tnumber
+    global unumber,frecord,tweet,Account,vertices, tnumber,tweets,tweetBy,tweetTime
     unumber =0
     frecord = 0
     tnumber = 0
     Account = []
     vertices = []
+    tweets = []
+    tweetBy = []
+    tweetTime = []
     
     f = open("user.txt", 'r')
     while True:
@@ -155,6 +158,16 @@ def  readDF():
                 Account[i].tdat = tdat
                 Account[i].tnumber = Account[i].tnumber + 1
                 tnumber = tnumber + 1
+                flag =0
+                for k in range(0,len(tweets)):
+                    if tweets[k] == tweet:
+                        tweetTime[k] = tweetTime[k] + 1
+                        flag = 1
+                        break
+                if flag == 0:
+                    tweets.append(tweet)
+                    tweetBy.append(uid)
+                    tweetTime.append(0)
                 break
     print("Total tweets : %d" % tnumber)
     f.close()
@@ -181,27 +194,114 @@ def statistic():
     print("Average tweets per user : %d" % (tnumber/unumber))
     print("Minium tweets per user : %d" % mintweet)
     print("Maximu tweets per user : %d" % maxtweet)
+    
 def mostW():
-    print("2")
+    word = []
+    for i in range(0,5):
+        if tweetTime[i]<=tweetTime[0] and tweetTime[i]<=tweetTime[1] and tweetTime[i]<=tweetTime[2] and tweetTime[i]<=tweetTime[3] and tweetTime[i]<=tweetTime[4]:
+            word = [i,i,i,i,i]
+            break
+    for i in range(0,len(tweets)):
+        if tweetTime[i] > tweetTime[word[4]]:
+            if tweetTime[i] > tweetTime[word[0]]:
+                word[0] = i
+            elif tweetTime[i] > tweetTime[word[1]]:
+                word[1] = i
+            elif tweetTime[i] > tweetTime[word[2]]:
+                word[2] = i
+            elif tweetTime[i] > tweetTime[word[3]]:
+                word[3] = i
+            else:
+                word[4] = i
+    print("Top 5 most tweeted words\n")
+    for i in range(0,5):
+        print("%d위 : %s    %d회" %(i+1, tweets[word[i]], tweetTime[word[i]]))
+        
 def mostU():
-    print("3")
+    word = []
+    for i in range(0,5):
+        if Account[i].tnumber <=Account[0].tnumber and Account[i].tnumber <=Account[1].tnumber and Account[i].tnumber <=Account[2].tnumber and Account[i].tnumber <=Account[3].tnumber and Account[i].tnumber <=Account[4].tnumber:
+            word = [i,i,i,i,i]
+            break
+    for i in range(0,len(Account)):
+        if Account[i].tnumber > Account[word[4]].tnumber:
+            if Account[i].tnumber > Account[word[0]].tnumber:
+                word[0] = i
+            elif Account[i].tnumber > Account[word[1]].tnumber:
+                word[1] = i
+            elif Account[i].tnumber > Account[word[2]].tnumber:
+                word[2] = i
+            elif Account[i].tnumber > Account[word[3]].tnumber:
+                word[3] = i
+            else:
+                word[4] = i
+    print("Top 5 most tweeted users\n")
+    for i in range(0,5):
+        print("%d위 : %s  %s  %d회" %(i+1,Account[word[i]].uid, Account[word[i]].nick,Account[word[i]].tnumber))
+    
 def findU():
-    print("4")
+    userfind = []
+    word = input("찾으시려는 유저의 트윗을 입력해 주세요")
+    for i in range(0,len(tweets)):
+        if str(tweets[i]) == word:
+             userfind.append(tweetBy[i])
+             rec = i
+    print("검색된 유저id :\n")
+    for i in range(0,len(userfind)):
+        print(userfind[i])
+    
 def findRecent():
-    print("5")
+    userfriend = []
+    for i in range(0,len(Account)):
+        for k in range(0,len(Account[i].friend)):
+            if Account[i].friend[k] == Account[rec].uid:
+                userfriend.append(Account[i].nick)
+    print("최근 검색 유저의 친구")
+    for i in range(0,len(userfriend)):
+        print(userfriend[i])
+        
 def deleteMW():
-    print("6")
+    word = input("제거하시려는 트윗을 입력해 주세요")
+    for i in range(0,len(tweets)):
+        if tweets[i] ==word:
+            del tweets[i]
+            del tweetBy[i]
+            del tweetTime[i]
+            break
+    for i in range(0,len(Account)):
+        for k in range(0,len(Account[i].tweet)):
+            if Account[i].tweet[k] == word:
+                del Account[i].tweet[k]
+                Account[i].tnumber = Account[i].tnumber - 1
+                tnumber = tnumber - 1
+    
 def deleteUMW():
-    print("7")
+    word = input("제거하시려는 유저가 한 트윗을 입력해 주세요")
+    for i in range(0,len(tweets)):
+        if tweets[i] ==word:
+            del tweets[i]
+            del tweetBy[i]
+            del tweetTime[i]
+            break
+    for i in range(0,len(Account)):
+        for k in range(0,len(Account[i].tweet)):
+            if Account[i].tweet[k] == word:
+                del Account[i]
+            """지금까지 짠 코드 상태상 유저 안에 들어가 있는 모든 항목들을 일일히 검사해
+연결관계를 일일히 삭제해야 하지만 시간복잡도가 너무 높아지므로 생략합니다 ㅠ
+
+"""
+                
 def SCC():
-    print("8")
+    print("미구현")
+
 def shortest():
-    for i in range(1, 11):
-        data = "%d번째 줄입니다.\n" % i
-        print(data)
+    print("asdf")
     
 def main():
+    global rec
     ext=0
+    rec =0
     print("------------------START---------------")
     while not ext:
         print("0. Read data files\n")
@@ -220,11 +320,6 @@ def main():
         except:
             print("숫자를 입력해 주세요")
         else:
-            if(select==0):
-                readDF()
-            elif(select==1):
-                statistic()
-            """
             try:
                 if(select==0):
                         readDF()
@@ -238,7 +333,10 @@ def main():
                     elif(select==4):
                         findU()
                     elif(select==5):
-                        findRecent()
+                        if rec!=0:
+                            findRecent()
+                        else:
+                            print("최근 검색한 user가 없습니다.")
                     elif(select==6):
                         deleteMW()
                     elif(select==7):
@@ -254,6 +352,5 @@ def main():
                 print("############################\n")
             except:
                 print("0번을 먼저 진행해 주세요")
-"""
 
 main()

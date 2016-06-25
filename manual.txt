@@ -8,7 +8,7 @@ Manual
 3. Top 5 most tweeted users
 4. Find users who tweeted a word (e.g., ¡¯¿¬¼¼´ë¡¯)
 5. Find all people who are friends of the above users
-6. Delete users who mentioned a word
+6. Delete all mentions of a word
 7. Delete all users who mentioned a word
 8. Find strongly connected components
 9. Find shortest path from a given user
